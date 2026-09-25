@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="kk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Технологиялары: Интерактивті Жоба</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 text-white p-2 rounded-xl glow-effect">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">VPN Project 4x</span>
+            </div>
+            <nav class="hidden md:flex space-x-1">
+                <button onclick="switchTab('home')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition text-indigo-400 bg-indigo-950/50">Басты бет</button>
+                <button onclick="switchTab('history')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-900">1. Тарихы</button>
+                <button onclick="switchTab('how')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-900">2. Жұмысы</button>
+                <button onclick="switchTab('types')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-900">3. Түрлері</button>
+                <button onclick="switchTab('security')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition text-slate-300 hover:text-white hover:bg-slate-900">4. Қауіпсіздік</button>
+                <button onclick="switchTab('quiz')" class="nav-btn px-3.5 py-2 rounded-lg text-sm font-medium transition bg-indigo-600 text-white hover:bg-indigo-500 shadow-lg shadow-indigo-600/30"><i class="fa-solid fa-gamepad mr-1.5"></i> Quizizz</button>
+            </nav>
+            <div class="md:hidden">
+                <button onclick="toggleMobileMenu()" class="text-slate-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 bg-slate-900/95 border-b border-slate-800">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-indigo-400">Басты бет</button>
+            <button onclick="switchTab('history'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-slate-300">1. Тарихы</button>
+            <button onclick="switchTab('how'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-slate-300">2. Жұмысы</button>
+            <button onclick="switchTab('types'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-slate-300">3. Түрлері</button>
+            <button onclick="switchTab('security'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-slate-300">4. Қауіпсіздік</button>
+            <button onclick="switchTab('quiz'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-indigo-400 bg-indigo-950/50">Quizizz Ойын</button>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+        <!-- TAB 1: HOME -->
+        <section id="tab-home" class="tab-content space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-6 pt-6">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-users"></i> Топтық жоба • 4 қатысушы
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                    <span class="bg-gradient-to-r from-white via-slate-200 to-indigo-400 bg-clip-text text-transparent">VPN (Virtual Private Network)</span> Технологиясы
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg">
+                    Интернеッテгі қауіпсіздік, жеке деректерді қорғау және желілік технологиялар әлеміне саяхат. Біздің команда мүшелері дайындаған 4 негізгі бөліммен танысыңыз!
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 pt-4">
+                    <button onclick="switchTab('quiz')" class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5 flex items-center space-x-2">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <span>Quizizz Ойнау</span>
+                    </button>
+                    <button onclick="switchTab('history')" class="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold rounded-xl transition transform hover:-translate-y-0.5">
+                        Мәліметтерді оқу <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Team Members Grid (4 parts) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+                <!-- Card 1 -->
+                <div onclick="switchTab('history')" class="glass-card p-6 rounded-2xl hover:border-indigo-500/50 transition cursor-pointer group space-y-4">
+                    <div class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 text-xl font-bold group-hover:scale-110 transition">1</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-indigo-400 transition">Тарихы мен Негізі</h3>
+                    <p class="text-slate-400 text-sm">VPN қашан және не үшін пайда болды? Алғашқы хаттамалар мен негізгі түсініктер.</p>
+                    <span class="text-xs text-indigo-400 font-medium inline-flex items-center">Толығырақ <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></span>
+                </div>
+                <!-- Card 2 -->
+                <div onclick="switchTab('how')" class="glass-card p-6 rounded-2xl hover:border-cyan-500/50 transition cursor-pointer group space-y-4">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 text-xl font-bold group-hover:scale-110 transition">2</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition">Қалай Жұмыс Істейді?</h3>
+                    <p class="text-slate-400 text-sm">Деректерді шифрлау, тоннельдеу және IP-мекенжайды жасыру құпиялары.</p>
+                    <span class="text-xs text-cyan-400 font-medium inline-flex items-center">Толығырақ <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></span>
+                </div>
+                <!-- Card 3 -->
+                <div onclick="switchTab('types')" class="glass-card p-6 rounded-2xl hover:border-violet-500/50 transition cursor-pointer group space-y-4">
+                    <div class="w-12 h-12 bg-violet-500/10 rounded-xl flex items-center justify-center text-violet-400 text-xl font-bold group-hover:scale-110 transition">3</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-violet-400 transition">Түрлері мен Қолдану Аясы</h3>
+                    <p class="text-slate-400 text-sm">Remote Access, Site-to-Site VPN және оларды қайда қолданатынымыз.</p>
+                    <span class="text-xs text-violet-400 font-medium inline-flex items-center">Толығырақ <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></span>
+                </div>
+                <!-- Card 4 -->
+                <div onclick="switchTab('security')" class="glass-card p-6 rounded-2xl hover:border-emerald-500/50 transition cursor-pointer group space-y-4">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-xl font-bold group-hover:scale-110 transition">4</div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">Қауіпсіздік & Болашағы</h3>
+                    <p class="text-slate-400 text-sm">Артықшылықтары, тегін VPN қауіптері және жасанды интеллект дәуіріндегі болашағы.</p>
+                    <span class="text-xs text-emerald-400 font-medium inline-flex items-center">Толығырақ <i class="fa-solid fa-chevron-right ml-1 text-[10px]"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: HISTORY -->
+        <section id="tab-history" class="tab-content hidden space-y-8">
+            <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                <div class="p-3 bg-indigo-600 text-white rounded-xl"><i class="fa-solid fa-landmark text-xl"></i></div>
+                <div>
+                    <span class="text-indigo-400 text-xs font-semibold uppercase">Бөлім 1</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold">Тарихы мен Негізі</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4 text-slate-300">
+                    <p class="leading-relaxed">
+                        <strong class="text-white">VPN (Virtual Private Network)</strong> — бұл жалпыға қолжетімді интернет желісі арқылы бір немесе бірнеше компьютер арасында қауіпсіз байланыс орнатуға мүмкіндік беретін технология.
+                    </p>
+                    <div class="glass-card p-5 rounded-xl border-l-4 border-l-indigo-500 space-y-2">
+                        <h4 class="font-bold text-white">Қашан пайда болды?</h4>
+                        <p class="text-sm text-slate-400">VPN технологиясының алғашқы протоколдары <strong class="text-indigo-300">1990 жылдардың басында</strong> ірі корпорацияларға өз қызметкерлерінің кеңседен тыс жерден компания ішкі желісіне қауіпсіз қосылуын қамтамасыз ету үшін жасалған.</p>
+                    </div>
+                    <p class="leading-relaxed text-sm text-slate-400">
+                        Уақыт өте келе бұл технология әскери және корпоративтік ортадан шығып, бүкіл әлемдегі қарапайым интернет қолданушыларының жеке құпиялылығын қорғайтын негізгі құралға айналды.
+                    </p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl space-y-6">
+                    <h3 class="text-lg font-bold text-white flex items-center"><i class="fa-solid fa-timeline text-indigo-400 mr-2"></i> Маңызды кезеңдер</h3>
+                    <ul class="space-y-4 text-sm text-slate-300">
+                        <li class="flex items-start space-x-3">
+                            <span class="bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-md font-mono mt-0.5">1994 ж.</span>
+                            <div><strong>PPTP жасалуы:</strong> Microsoft инженері Гуйярд Пирр Point-to-Point Tunneling Protocol протоколын ойлап тапты.</div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-md font-mono mt-0.5">2000 жж.</span>
+                            <div><strong>IPsec пен OpenVPN:</strong> Қауіпсіздік стандарттары күшейтіліп, қазіргі заманғы сенімді протоколдар пайда болды.</div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="bg-indigo-600 text-white text-xs px-2.5 py-1 rounded-md font-mono mt-0.5">Қазіргі кез</span>
+                            <div><strong>Жаппай қолданыс:</strong> Әлем халқының 30%-дан астамы күнделікті өмірде VPN қолданады.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex justify-between pt-6 border-t border-slate-800">
+                <button onclick="switchTab('home')" class="px-4 py-2 bg-slate-900 rounded-lg text-sm text-slate-300 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Басты бет</button>
+                <button onclick="switchTab('how')" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-sm font-semibold text-white">Келесі: Қалай жұмыс істейді? <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </div>
+        </section>
+
+        <!-- TAB 3: HOW IT WORKS -->
+        <section id="tab-how" class="tab-content hidden space-y-8">
+            <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                <div class="p-3 bg-cyan-600 text-white rounded-xl"><i class="fa-solid fa-gears text-xl"></i></div>
+                <div>
+                    <span class="text-cyan-400 text-xs font-semibold uppercase">Бөлім 2</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold">Қалай Жұмыс Істейді?</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center font-bold">1</div>
+                    <h3 class="text-lg font-bold text-white">Тоннельдеу (Tunneling)</h3>
+                    <p class="text-sm text-slate-400">Деректеріңіз шифрланған арнайы виртуалды «тоннель» арқылы өтеді. Бұл сырттан қараған адамға не жіберіп жатқаныңызды көруге мүмкіндік бермейді.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center font-bold">2</div>
+                    <h3 class="text-lg font-bold text-white">Шифрлау (Encryption)</h3>
+                    <p class="text-sm text-slate-400">Ақпарат түсініксіз кодқа айналады (мысалы, AES-256 стандарты). Оны тек сіздің компьютеріңіз бен қашықтағы VPN сервері ғана шеше алады.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center font-bold">3</div>
+                    <h3 class="text-lg font-bold text-white">IP-мекенжайды ауыстыру</h3>
+                    <p class="text-sm text-slate-400">Сіздің нақты IP-мекенжайыңыз VPN серверінің мекенжайымен алмасады. Нәтижесінде сіз басқа елден кіріп тұрғандай көрінесіз.</p>
+                </div>
+            </div>
+            <!-- Interactive Visualizer -->
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <h3 class="font-bold text-white flex items-center"><i class="fa-solid fa-network-wired text-cyan-400 mr-2"></i> Деректердің берілу жолы</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-laptop text-2xl text-cyan-400 mb-2"></i>
+                        <h4 class="font-semibold text-white">Сіздің құрылғы</h4>
+                        <p class="text-xs text-slate-400 mt-1">Шифрланбаған сұрау жіберіледі</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 flex flex-col justify-center">
+                        <i class="fa-solid fa-shield text-2xl text-indigo-400 mb-2"></i>
+                        <h4 class="font-semibold text-white">VPN Сервері</h4>
+                        <p class="text-xs text-slate-400 mt-1">Деректерді кодтап, басқа IP береді</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-globe text-2xl text-emerald-400 mb-2"></i>
+                        <h4 class="font-semibold text-white">Интернет сайт</h4>
+                        <p class="text-xs text-slate-400 mt-1">Қауіпсіз және жасырын қатынау</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between pt-6 border-t border-slate-800">
+                <button onclick="switchTab('history')" class="px-4 py-2 bg-slate-900 rounded-lg text-sm text-slate-300 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Тарихы</button>
+                <button onclick="switchTab('types')" class="px-5 py-2 bg-cyan-600 hover:bg-cyan-500 rounded-lg text-sm font-semibold text-white">Келесі: Түрлері мен қолдану аясы <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </div>
+        </section>
+
+        <!-- TAB 4: TYPES & USAGE -->
+        <section id="tab-types" class="tab-content hidden space-y-8">
+            <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                <div class="p-3 bg-violet-600 text-white rounded-xl"><i class="fa-solid fa-layer-group text-xl"></i></div>
+                <div>
+                    <span class="text-violet-400 text-xs font-semibold uppercase">Бөлім 3</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold">Түрлері мен Қолдану Аясы</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="text-violet-400 font-mono text-sm">01 / Remote Access VPN</div>
+                    <h3 class="text-xl font-bold text-white">Қашықтан Қолжетімділік VPN</h3>
+                    <p class="text-slate-400 text-sm">Жеке қолданушыларға немесе қызметкерлерге үйде отырып компания немесе жеке серверге қауіпсіз қосылуға мүмкіндік береді.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="text-violet-400 font-mono text-sm">02 / Site-to-Site VPN</div>
+                    <h3 class="text-xl font-bold text-white">Сайттан-сайтқа VPN (Intranet/Extranet)</h3>
+                    <p class="text-slate-400 text-sm">Әр түрлі қалалардағы немесе елдердегі филиалдар мен кеңсе желілерін өзара біріктіру үшін қолданылады.</p>
+                </div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl space-y-4">
+                <h3 class="text-lg font-bold text-white flex items-center"><i class="fa-solid fa-bullseye text-violet-400 mr-2"></i> Қайда және не үшін қолданылады?</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-slate-900/60 p-4 rounded-xl">
+                        <i class="fa-solid fa-wifi text-violet-400 text-xl mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Қоғамдық Wi-Fi қорғау</h4>
+                        <p class="text-xs text-slate-400 mt-1">Кафе немесе аэропорттағы ашық Wi-Fi арқылы құпиясөздерді ұрлаудан сақтайды.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-4 rounded-xl">
+                        <i class="fa-solid fa-user-secret text-violet-400 text-xl mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Жеке құпиялылық</h4>
+                        <p class="text-xs text-slate-400 mt-1">Провайдерлер мен жарнама компанияларының сіздің әрекетіңізді бақылауына жол бермейді.</p>
+                    </div>
+                    <div class="bg-slate-900/60 p-4 rounded-xl">
+                        <i class="fa-solid fa-building-shield text-violet-400 text-xl mb-2"></i>
+                        <h4 class="font-bold text-white text-sm">Корпоративтік қауіпсіздік</h4>
+                        <p class="text-xs text-slate-400 mt-1">Компанияның ішкі құжаттары мен деректерін сыртқы шабуылдардан қорғайды.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between pt-6 border-t border-slate-800">
+                <button onclick="switchTab('how')" class="px-4 py-2 bg-slate-900 rounded-lg text-sm text-slate-300 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Жұмысы</button>
+                <button onclick="switchTab('security')" class="px-5 py-2 bg-violet-600 hover:bg-violet-500 rounded-lg text-sm font-semibold text-white">Келесі: Қауіпсіздік & Болашағы <i class="fa-solid fa-arrow-right ml-2"></i></button>
+            </div>
+        </section>
+
+        <!-- TAB 5: SECURITY & FUTURE -->
+        <section id="tab-security" class="tab-content hidden space-y-8">
+            <div class="flex items-center space-x-4 border-b border-slate-800 pb-4">
+                <div class="p-3 bg-emerald-600 text-white rounded-xl"><i class="fa-solid fa-shield-cat text-xl"></i></div>
+                <div>
+                    <span class="text-emerald-400 text-xs font-semibold uppercase">Бөлім 4</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold">Артықшылықтары, Қауіпсіздік және Болашағы</h2>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <h3 class="text-lg font-bold text-emerald-400 flex items-center"><i class="fa-solid fa-check-circle mr-2"></i> Артықшылықтары</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2 text-xs"></i> Деректерді толық шифрлау</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2 text-xs"></i> Географиялық шектеулерді айналып өту</li>
+                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2 text-xs"></i> Онлайн цензурадан қорғану</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-2xl space-y-4">
+                    <h3 class="text-lg font-bold text-amber-400 flex items-center"><i class="fa-solid fa-triangle-exclamation mr-2"></i> Тегін VPN қауіптері</h3>
+                    <p class="text-sm text-slate-300">
+                        «Тегін сыр ешқашан тегін болмайды». Көптеген тегін VPN сервис провайдерлері сіздің жеке деректеріңізді (шолу тарихы, IP) жинап, үшінші тарап жарнама компанияларына **сатады**.
+                    </p>
+                </div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl space-y-3 border-l-4 border-l-emerald-500">
+                <h3 class="text-lg font-bold text-white flex items-center"><i class="fa-solid fa-crystal-ball text-emerald-400 mr-2"></i> VPN технологиясының болашағы</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Кванттық есептеулер мен жасанды интеллект (AI) дамыған сайын, VPN де жаңарып келеді. Болашақта кванттық шифрлау протоколдары қолданысқа еніп, кез келген кибершабуылға қарсы тұра алатын автоматты түрде қосылатын нөлдік сенім архитектурасы (Zero Trust) басты стандартқа айналады.
+                </p>
+            </div>
+            <div class="flex justify-between pt-6 border-t border-slate-800">
+                <button onclick="switchTab('types')" class="px-4 py-2 bg-slate-900 rounded-lg text-sm text-slate-300 hover:text-white"><i class="fa-solid fa-arrow-left mr-2"></i> Түрлері</button>
+                <button onclick="switchTab('quiz')" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg text-sm font-semibold text-white"><i class="fa-solid fa-gamepad mr-2"></i> Quizizz Ойынға өту</button>
+            </div>
+        </section>
+
+        <!-- TAB 6: QUIZIZZ GAME -->
+        <section id="tab-quiz" class="tab-content hidden space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-4 pt-2">
+                <span class="px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-wider">
+                    <i class="fa-solid fa-gamepad"></i> Quizizz Стиліндегі Интерактивті Квиз
+                </span>
+                <h2 class="text-3xl font-extrabold text-white">Біліміңізді тексеріңіз!</h2>
+                <p class="text-slate-400 text-sm">Топ мүшелері дайындаған 4 бөлім бойынша сұрақтарға жауап беріп, балл жинаңыз.</p>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="max-w-2xl mx-auto glass-card p-6 sm:p-8 rounded-2xl space-y-6">
+                <div class="flex justify-between items-center text-sm text-slate-400 border-b border-slate-800 pb-4">
+                    <span id="question-counter">Сұрақ 1 / 5</span>
+                    <span id="score-display" class="font-bold text-indigo-400">Ұпай: 0</span>
+                </div>
+                <div id="question-box" class="space-y-4">
+                    <!-- Dynamic Question Text -->
+                    <h3 id="question-text" class="text-lg sm:text-xl font-bold text-white">Сұрақ жүктелуде...</h3>
+                    <!-- Options Grid -->
+                    <div id="options-grid" class="grid grid-cols-1 gap-3">
+                        <!-- Options injected via JS -->
+                    </div>
+                </div>
+                <div id="feedback-box" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                <div class="flex justify-end pt-2">
+                    <button id="next-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl shadow-lg transition">Келесі сұрақ <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                </div>
+            </div>
+
+            <!-- Quiz Results Box -->
+            <div id="quiz-results" class="hidden max-w-2xl mx-auto glass-card p-8 rounded-2xl text-center space-y-6">
+                <div class="w-16 h-16 bg-indigo-500/10 text-indigo-400 text-3xl rounded-full flex items-center justify-center mx-auto glow-effect">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Квиз аяқталды!</h3>
+                <p id="final-score-text" class="text-lg text-slate-300">Сіздің нәтижеңіз: 5 / 5</p>
+                <div class="flex justify-center space-x-4 pt-2">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl shadow-lg transition">Қайта бастау</button>
+                    <button onclick="switchTab('home')" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold rounded-xl transition">Басты бетке қайту</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="glass-card border-t border-slate-800 py-6 mt-12 text-center text-slate-500 text-xs">
+        <p>VPN Топтық Жобасы • 4 мүшелік командаға арналған интерактивті web сайт</p>
+    </footer>
+
+    <script>
+        // Tab Switcher Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            
+            // Highlight active nav button on desktop
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-indigo-400', 'bg-indigo-950/50', 'bg-indigo-600', 'text-white');
+                btn.classList.add('text-slate-300');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Quiz Data based on 4 parts
+        const quizData = [
+            {
+                question: "VPN технологиясы алғашқы рет қай жылы және не үшін жасалған еді?",
+                options: [
+                    "1990 жылдары корпоративтік желілерді қорғау үшін",
+                    "2010 жылы ойындар үшін",
+                    "2005 жылы әлеуметтік желілер үшін",
+                    "1980 жылы тек үй компьютерлері үшін"
+                ],
+                correct: 0
+            },
+            {
+                question: "VPN арқылы деректерді қорғау үшін қолданылатын негізгі процесс қалай аталады?",
+                options: [
+                    "Форматирлеу",
+                    "Шифрлау (Encryption) және Тоннельдеу",
+                    "Архивтеу",
+                    "Вирустан тазарту"
+                ],
+                correct: 1
+            },
+            {
+                question: "Төмендегілердің қайсысы VPN түрлеріне жатады?",
+                options: [
+                    "Remote Access VPN және Site-to-Site VPN",
+                    "Bluetooth пен Wi-Fi VPN",
+                    "Local LAN пен WAN VPN",
+                    "Browser мен Server VPN"
+                ],
+                correct: 0
+            },
+            {
+                question: "Қоғамдық Wi-Fi (мысалы кафеде) қолданғанда VPN бізге не үшін көмектеседі?",
+                options: [
+                    "Интернет жылдамдығын арттыру үшін",
+                    "Құпиясөздерді ұрлаудан қорғау және шифрлау үшін",
+                    "Компьютерді зарядтау үшін",
+                    "Экран жарықтығын реттеу үшін"
+                ],
+                correct: 1
+            },
+            {
+                question: "Тегін VPN сервистерінің басты қауіпі неде болуы мүмкін?",
+                options: [
+                    "Интернетті шектен тыс тездетіп жібереді",
+                    "Жеке деректерді жинап, үшінші тарапқа сатуы мүмкін",
+                    "Электр энергиясын көп тұтынады",
+                    "Ешқандай қауіпі жоқ"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            const q = quizData[currentQuestionIndex];
+            document.getElementById('question-counter').innerText = `Сұрақ ${currentQuestionIndex + 1} / ${quizData.length}`;
+            document.getElementById('score-display').innerText = `Ұпай: ${score}`;
+            document.getElementById('question-text').innerText = q.question;
+            
+            const optionsGrid = document.getElementById('options-grid');
+            optionsGrid.innerHTML = '';
+            
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-200 transition font-medium text-sm flex items-center justify-between";
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle-dot text-slate-600 text-xs"></i>`;
+                btn.onclick = () => selectOption(idx, btn);
+                optionsGrid.appendChild(btn);
+            });
+
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function selectOption(selectedIndex, btnElement) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizData[currentQuestionIndex];
+            const feedbackBox = document.getElementById('feedback-box');
+            feedbackBox.classList.remove('hidden');
+
+            const allButtons = document.getElementById('options-grid').children;
+
+            if (selectedIndex === q.correct) {
+                btnElement.classList.remove('bg-slate-900/80', 'hover:bg-slate-800');
+                btnElement.classList.add('bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200');
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium bg-emerald-950/50 border border-emerald-500/30 text-emerald-300";
+                feedbackBox.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Дұрыс!';
+                score += 20;
+            } else {
+                btnElement.classList.remove('bg-slate-900/80', 'hover:bg-slate-800');
+                btnElement.classList.add('bg-rose-950/80', 'border-rose-500', 'text-rose-200');
+                // Highlight correct
+                allButtons[q.correct].classList.remove('bg-slate-900/80', 'hover:bg-slate-800');
+                allButtons[q.correct].classList.add('bg-emerald-950/80', 'border-emerald-500', 'text-emerald-200');
+                
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium bg-rose-950/50 border border-rose-500/30 text-rose-300";
+                feedbackBox.innerHTML = '<i class="fa-solid fa-circle-xmark mr-2"></i> Қате! Дұрыс жауап ерекшеленді.';
+            }
+
+            document.getElementById('score-display').innerText = `Ұпай: ${score}`;
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            document.getElementById('final-score-text').innerText = `Жинаған ұпайыңыз: ${score} / 100 балл`;
+        }
+
+        function restartQuiz() {
+            loadQuiz();
+        }
+
+        // Initialize quiz on load
+        window.onload = function() {
+            loadQuiz();
+        };
+    </script>
+
+</body>
+</html>
